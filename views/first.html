@@ -1,0 +1,64 @@
+<html>
+    <head><title>The Legend of Prambanan Temple</title>
+        <link rel="stylesheet" type="text/css" href="/styles.css">
+
+      <!--  <link rel="stylesheet" href="styles.css">-->
+    </head>
+<body>
+    <% if(language==="eng"){ %>
+        <% switch (vid) {
+            case '1' : %>
+
+    <video id="vid" width="80%" height="auto" autoplay controls> <source src="/FIT3146-Eng-1.mp4" type="video/mp4"> </video>
+        <br><br>
+        <a class="myButton" href="/">Back</a> <a class="myButton" href="/eng/play/2">Next</a>
+        <p>1/4</p> 
+        <% break;
+
+        case '2' : %> 
+    <video id="vid" width="80%" height="auto" autoplay controls> <source src="/FIT3146-Eng-2.mp4" type="video/mp4"> </video>
+        <br><br>
+        <a class="myButton" href="/eng/play/1">Back</a>         <a class="myButton" href="/eng/play/3">Next</a>
+
+        <p>2/4</p> 
+        <% break;
+
+    case '3' : %> 
+    <video id="vid" width="80%" height="auto" autoplay controls> <source src="/FIT3146-Eng-3.mp4" type="video/mp4"> </video>
+        <br><br>
+        <a class="myButton" href="/eng/play/2">Back</a> <a class="myButton" href="/eng/play/4">Next</a>
+        <p>3/4</p> 
+
+        <% break;
+
+    case '4' : %> 
+    <video id="vid" width="80%" height="auto" autoplay controls> <source src="/FIT3146-Eng-4.mp4" type="video/mp4"> </video>
+        <br><br>
+        <a class="myButton" href="/eng/play/3">Back</a> <a class="myButton" href="/eng/play/4">Home</a>
+        <p>4/4</p> 
+        <% break;
+
+    } %>
+    <% } else if (language==="ind") { %>    
+        <video id="vid" width="100%" height="auto" autoplay controls> <source src="videos/Stardew.mp4" type="video/mp4"> </video>
+
+        <% } else{ %>
+            <p>Language error!</p>
+            <% } %>
+
+        <!--https://stackoverflow.com/questions/17994666/video-auto-play-is-not-working-in-safari-and-chrome-desktop-browser-->
+        <!--https://stackoverflow.com/questions/8216918/can-i-use-conditional-statements-with-ejs-templates-in-jmvc#comment77682231_24877667-->
+      <script>
+        var vid = document.getElementById("vid");
+
+function playVid() {
+    vid.play();
+}
+
+function pauseVid() {
+    vid.pause();
+} 
+      </script>
+
+</body>
+</html>
