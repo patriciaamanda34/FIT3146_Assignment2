@@ -11,7 +11,7 @@
 
     <video id="vid" width="80%" height="auto" autoplay controls> <source src="/FIT3146-Eng-1.mp4" type="video/mp4"> </video>
         <br><br>
-        <a class="myButton" href="/">Back</a> <a class="myButton" href="/eng/play/2">Next</a>
+        <a class="myButton" href="/">Home</a> <a class="myButton" href="/eng/play/2">Next</a>
         <p>1/4</p> 
         <% break;
 
@@ -34,13 +34,41 @@
     case '4' : %> 
     <video id="vid" width="80%" height="auto" autoplay controls> <source src="/FIT3146-Eng-4.mp4" type="video/mp4"> </video>
         <br><br>
-        <a class="myButton" href="/eng/play/3">Back</a> <a class="myButton" href="/eng/play/4">Home</a>
+        <a class="myButton" href="/eng/play/3">Back</a> <a class="myButton" href="/">Home</a>
         <p>4/4</p> 
         <% break;
 
     } %>
     <% } else if (language==="ind") { %>    
-        <video id="vid" width="100%" height="auto" autoplay controls> <source src="videos/Stardew.mp4" type="video/mp4"> </video>
+        <% switch (vid) {
+            case '1' : %>
+            <video id="vid" width="80%" height="auto" autoplay controls> <source src="/FIT3146-Ind-1.mp4" type="video/mp4"> </video>
+                <br><br>
+                <a class="myButton" href="/">Home</a> <a class="myButton" href="/ind/play/2">Next</a>
+                <p>1/4</p> 
+             <% break;
+
+            case '2' : %> 
+            <video id="vid" width="80%" height="auto" autoplay controls> <source src="/FIT3146-Ind-2.mp4" type="video/mp4"> </video>
+                <br><br>
+                <a class="myButton" href="/ind/play/1">Back</a> <a class="myButton" href="/ind/play/3">Next</a>
+                <p>2/4</p> 
+            <% break;
+
+            case '3' : %> 
+            <video id="vid" width="80%" height="auto" autoplay controls> <source src="/FIT3146-Ind-3.mp4" type="video/mp4"> </video>
+                <br><br>
+                <a class="myButton" href="/ind/play/2">Back</a> <a class="myButton" href="/ind/play/4">Next</a>
+                <p>3/4</p> 
+            <% break;
+
+            case '4' : %> 
+            <video id="vid" width="80%" height="auto" autoplay controls> <source src="/FIT3146-Ind-4.mp4" type="video/mp4"> </video>
+                <br><br>
+                <a class="myButton" href="/ind/play/3">Back</a> <a class="myButton" href="/">Home</a>
+                <p>4/4</p> 
+            <% break;    } %>
+
 
         <% } else{ %>
             <p>Language error!</p>

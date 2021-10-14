@@ -1,6 +1,5 @@
 //import fetch from "node-fetch";
 //image credit: https://en.wikipedia.org/wiki/Prambanan
-
 //Express foundation: from FIT2095 S2 2021, Monash University
 let express = require('express');
 let app = express();
@@ -24,13 +23,15 @@ var SerialPort = require("serialport");
 const { nextTick } = require('process');
 const Readline = SerialPort.parsers.Readline;
 //const parser = new Readline({delimiter:'\r\n'});
-
+let servo1Run = true;
+let servo2Run = true;
 /*SerialPort.list().then(ports2 => {
     ports2.forEach(function(port) {
        if(ports2.path == 'COM6'){
            port = ports2;
        }
     })});*/
+//Micro:bit
 var port = new SerialPort("COM6", {
  baudRate: 115200,
  autoOpen: false
@@ -38,11 +39,18 @@ var port = new SerialPort("COM6", {
 
 }, function(err){
         if (err) {
-    return console.log('Error: ', err.message)
+    return console.log('Error (Micro:Bit): ', err.message)
 }});
 const parser = new Readline();
 port.pipe(parser);
 
+var port2 = new SerialPort("COM9", {
+    baudRate: 9600,
+    autoOpen: false
+}, function (err){
+    if(err){
+        return console.log("Error (Arduino): ", err.message);
+    }});
 /*
 port.write('main screen turn on', function(err) {
      if (err) {
@@ -68,14 +76,16 @@ port.open(function(err) {
         processData(data);
     });
 
-    port.write("TEST", function(err) {
-        if (err) {
-         return console.log('Error on write: ', err.message);
-        }
-        console.log('message written');
-       });
-
    
+});
+
+port2.open(function(err){
+    if (err) {
+        return console.log('Error opening port: ', err.message)
+      }
+      else {
+        console.log("Arduino Port open");
+    }
 });
 
 
@@ -136,6 +146,13 @@ function processData(data) {
 }*/
 
 app.get('/', function (req,res){
+    //Getting arduino to shut off all its lights:
+    port2.write("0", function(err){
+        if (err) {
+            return console.log('Error on write: ', err.message);
+            }
+            console.log('message written');
+    });
     res.render("index.html");
     console.log("running index.html");
 
@@ -153,14 +170,74 @@ app.get('/eng/play/1', function (req,res){
 */
 app.get('/eng/play/:number', function(req,res) {
     console.log('asdc req params');
+
+    checkParam(req.params.number);
+
     res.render("first.html", {language: "eng", vid: req.params.number});
 });
 
-app.get('/ind/play', function(req,res){
+app.get('/ind/play/:number', function(req,res){
     console.log("get play ID");
-    res.render("first.html", {language: "ind", vid: "1"});
+    checkParam(req.params.number);
+    res.render("first.html", {language: "ind", vid: req.params.number});
 
 });
 
+function checkParam(params){
+    if(params == 2){
+        console.log("1");
+        if(servo1Run){
+            servo1Run = false;
+            port.write("SERVO1", function(err) {
+                if (err) {
+                return console.log('Error on write: ', err.message);
+                }
+                console.log('message written');
+            });    
+        }
+        port2.write("2",function(err) {
+            if (err) {
+            return console.log('Error on write: ', err.message);
+            }
+            console.log('message written');
+        });    
+    }
+    else if(params==4){
+        console.log("2");
+        if(servo2Run){
+            servo2Run = false;
+
+            port.write("SERVO2", function(err) {
+                if (err) {
+                return console.log('Error on write: ', err.message);
+                }
+                console.log('message written');
+            });  
+        }
+        port2.write("4",function(err) {
+            if (err) {
+                return console.log('Error on write: ', err.message);
+            }
+            console.log('message written');
+        });  
+    }
+    //Arduinos:
+    else if(params==1) {
+        port2.write("1", function(err){
+            if (err) {
+                return console.log('Error on write: ', err.message);
+               }
+               console.log('message written TO ARDUINO');
+        });
+    }
+    else if(params==3){
+        port2.write("3", function(err){
+            if (err) {
+                return console.log('Error on write: ', err.message);
+               }
+               console.log('message written TO ARDUINO');
+        });
+    }
+}
 
 app.listen(8080);
