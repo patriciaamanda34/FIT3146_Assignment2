@@ -1,18 +1,38 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" >
 <head>
-    <title>The Legend of Prambanan Temple</title>
-    <link rel="stylesheet" type="text/css" href="/styles.css">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Dancing+Script" />
+  <meta charset="UTF-8">
+  <title>CodePen - Neat Parallax Hero Effect</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="./style.css">
+
 </head>
 <body>
-    <div class="content">
-        <h1>The Legend of Prambanan Temple</h1>
-        <h2>Choose a Language:</h2>
-        
-        <a class="myButton" href="/eng/play/1">English</a>
-        <a class="myButton" href="/ind/play/1">Bahasa Indonesia</a>
-        <br><br>
-        <img src="Prambanan.jpg" alt="Candi Prambanan / Prambanan Temple" >
+<!-- partial:index.partial.html -->
+<div class="hero-nav">
+    <div class="hero-nav__inner">
+        <h1>Prambanan Temple</h1>
+        <div class="hero-nav__button">
+            <a href="#" class="btn"></a>
         </div>
+    </div>
+</div>
+<div class="page-content">
+    <p>Prambanan, village in the daerah istimewa (special district) of Yogyakarta, Indonesia, known for a large, nearby complex of temples built in the 9th and 10th centuries. These temples were designated a UNESCO World Heritage site in 1999.
+    </p><br><p>
+        Nobody knows the origin of the Roro Jonggrang legend, which is also the Legend of Prambanan Temple, but it was possibly created when the locals discovered the temple. At that time, the locals had no means to understand the temple. Thus, the legend of Roro Jonggrang was formed.</p><br>
+    <p>Choose one of the languages below to hear the Legend of Prambanan Temple:</p>
+</div>
+<div class="container">
+    <div><h3>Bahasa Indonesia</h3>
+        <img src="Indonesia.png" height=auto width="50%"></img>
+    </div>
+    <div><h3>English</h3>
+        <img src="UnitedKingdom.png" height=auto width="50%"></img>
+    </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
+
 </body>
 </html>
