@@ -49,6 +49,10 @@ body, html {
 }
 p {
   font-family: Verdana;
+  text-align: center;
+  }
+
+.intro {  
   text-align: justify;
 }
 
@@ -58,7 +62,7 @@ p {
 }
 
 
-.container > div {
+.container > a  {
   margin: 10px;
   padding-left: 20px;
   padding-right: 20px;
@@ -84,11 +88,44 @@ p {
   text-align: center;
 }
 
-.container > div:hover {
+.container > a:hover{
+	background:linear-gradient(to bottom, #634b30 5%, #7d5d3b 100%);
+	background-color:#8d8984;
+}
+.container > a:active {
+	position:relative;
+	top:1px;
+}
+
+.myButton {
+	box-shadow:inset 0px 1px 0px 0px #a6827e;
+	background:linear-gradient(to bottom, #7d5d3b 5%, #634b30 100%);
+	background-color:#7d5d3b;
+	border-radius:3px;
+	border:1px solid #54381e;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Georgia, 'Times New Roman', Times, serif;
+	font-size:13px;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #4d3534;
+	font-size: 20px;
+}
+.myButton:hover {
 	background:linear-gradient(to bottom, #634b30 5%, #7d5d3b 100%);
 	background-color:#634b30;
 }
-.container > div:active {
+.myButton:active {
 	position:relative;
 	top:1px;
+}
+
+.movie-content {
+	width: 90em;
+	margin: 0 auto;
+  text-align: center;
+  line-height: 1;
+  background-color:#c4a178;
 }

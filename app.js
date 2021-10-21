@@ -38,7 +38,7 @@ var port2 = new SerialPort("COM9", {
 
 //Opening the ports:
 //Micro:Bit Port
-/*port.open(function(err) {
+port.open(function(err) {
     if (err) {
         return console.log('Error opening port: ', err.message)
     }
@@ -61,7 +61,7 @@ port2.open(function(err){
     else {
         console.log("Arduino Port open");
     }
-});*/
+});
 
 //When Micro:Bit receives data:
 function processData(data) {
@@ -73,13 +73,13 @@ function processData(data) {
 //Home page
 app.get('/', function (req,res){
     //Getting arduino to shut off all its lights:
-    /*port2.write("0", function(err){
+    port2.write("0", function(err){
         if (err) {
             return console.log('Error on write: ', err.message);
         }
         console.log('message 0 written for Arduino');
     });
-*/
+
     //Rendering home page:
     res.render("index.html");
     console.log("running index.html");
@@ -106,7 +106,7 @@ app.get('/ind/play/:number', function(req,res) {
 //Checks which part of the video it is,
 //Then writes serials to either the Arduino or Micro:Bit as needed.
 //Input: req.params.number of the app.get requests
-/*function checkParam(params){
+function checkParam(params){
     if(params == 1){
         port2.write("1", function(err){
             if (err) {
@@ -158,6 +158,6 @@ app.get('/ind/play/:number', function(req,res) {
             console.log('message 4 written to Arduino');
         });  
     }
-}*/
+}
 
 app.listen(8080);
