@@ -1,6 +1,6 @@
 FIT3146 Assignment 2 Source Code - for the Website.
 
-It is meant to play videos when clicked, as well as sending serial signals to Arduino and Micro:Bits depending on what's needed.
+It is meant to play videos when clicked, as well as sending serial signals to Arduino and Micro:Bits depending on what's needed. The project itself is a diorama of the Legend of Prambanan Temple folklore, an Indonesian folklore, and when certain buttons on the website is clicked, the arduinos (which are controlling the lights of the diorama) and the micro:bits (controlling the micro servos of the diorama) will react accordingly.
 
 Demo video of the artifact and website working: https://www.youtube.com/watch?v=899g0fKAPTI
 Progress video of the artifact as well as creation of the website: https://www.youtube.com/watch?v=xDaqg4naRmU
